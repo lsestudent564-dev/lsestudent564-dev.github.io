@@ -583,9 +583,14 @@
                 <p style="font-size: 1.4rem; margin-bottom: 30px;">
                     <strong>FREE Budget Tracker</strong> - Because your bank account shouldn't have a hangover too! 🤕💸
                 </p>
-                <button onclick="downloadExcelTracker()" style="background: white; color: #11998e; padding: 20px 50px; border: none; border-radius: 50px; font-size: 1.4rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: pulse 2s infinite;" onmouseover="this.style.transform='translateY(-3px) scale(1.1)'" onmouseout="this.style.transform='translateY(0) scale(1)'">
+                <a href="budget_tracker.xlsx" 
+                   download="LSE_Budget_Tracker.xlsx"
+                   style="background: white; color: #11998e; padding: 20px 50px; border: none; border-radius: 50px; font-size: 1.4rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: pulse 2s infinite; display: inline-block; text-decoration: none;"
+                   onmouseover="this.style.transform='translateY(-3px) scale(1.1)'" 
+                   onmouseout="this.style.transform='translateY(0) scale(1)'"
+                   onclick="trackUsage('excel_tracker_downloaded')">
                     📥 Get Your Budget Buddy Now!
-                </button>
+                </a>
                 <p style="margin-top: 25px; font-size: 1.3rem;">
                     <strong>10</strong> smart legends have already saved their wallets 🦸‍♂️
                 </p>
@@ -1229,55 +1234,6 @@
             a.click();
             
             trackUsage('data_exported');
-        }
-        
-        // Download Excel Budget Tracker Template
-        function downloadExcelTracker() {
-            // Create CSV template that Excel can open
-            const csvContent = `Smart Spending Budget Tracker - Stop Your Wallet from Getting Wasted!,,,,,
-Date,Day,Venue,Sober Me Budget (£),Drunk Me Spent (£),Damage (£),Regret Notes
-${new Date().toISOString().split('T')[0]},Monday,The George,15,,,SET THIS AT 5PM NOT 11PM!
-${new Date().toISOString().split('T')[0]},Tuesday,Three Tuns,10,,,Still expensive but less painful
-${new Date().toISOString().split('T')[0]},Wednesday,Netflix & Chill,0,,,Your wallet thanks you
-${new Date().toISOString().split('T')[0]},Thursday,Spoons,12,,,Pre-drinks are your friend
-${new Date().toISOString().split('T')[0]},Friday,The George,20,,,Weekend limit = danger zone
-${new Date().toISOString().split('T')[0]},Saturday,Various,25,,,RIP bank account
-${new Date().toISOString().split('T')[0]},Sunday,Recovery,0,,,Too broke to move anyway
-,,,,,
-Weekly Damage Report,,,,,
-What Sober You Planned:,=SUM(D3:D9),,,,
-What Drunk You Did:,=SUM(E3:E9),,,,
-Total Saved/Lost:,=B12-B13,,,,
-,,,,,
-Reality Checks:,,,,,
-✅ 73% of your mates spend LESS than £20/night - you're not missing out!,,,,,
-💀 George IV shows as "LSE Catering" - your parents think you eat a lot,,,,,
-🍕 £40 = 8 Domino's pizzas or 1 forgettable night,,,,,
-😭 87% wake up and immediately regret last night's spending,,,,,
-🎯 Set your limit at 5pm while sober - drunk you is an idiot,,,,,
-,,,,,
-The Truth About Your Spending:,,,,,
-£8 = 1 pint at George (overpriced),,,,,
-£10 = 2 coffees (needed for hangover),,,,,
-£15 = Actual lunch (not liquid lunch),,,,,
-£20 = Weekly transport (useful),,,,,
-£40 = Those textbooks you "can't afford",,,,,`;
-            
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'Stop_Getting_Wasted_Budget_Tracker.csv');
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Track usage
-            trackUsage('excel_tracker_downloaded');
-            
-            // Show success message
-            alert('Budget Buddy downloaded! 🎉 Open it in Excel and start saving yourself from yourself!');
         }
         
         // Success animation
