@@ -8,6 +8,15 @@
     <meta name="author" content="LSE PP452 Research Team">
     <title>Smart Spending Hub - Don't Let Your Wallet Get Wasted | LSE Students</title>
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43NS33BFD8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-43NS33BFD8');
+    </script>
+    
     <style>
         /* Reset and Base Styles */
         * {
@@ -36,6 +45,12 @@
             background: var(--white);
         }
         
+        /* Prevent horizontal scroll on all devices */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
             font-weight: 700;
@@ -47,13 +62,6 @@
         h2 { font-size: 2.5rem; }
         h3 { font-size: 2rem; }
         h4 { font-size: 1.5rem; }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-            h3 { font-size: 1.5rem; }
-            h4 { font-size: 1.25rem; }
-        }
         
         /* Container */
         .container {
@@ -298,6 +306,13 @@
         
         .calculate-btn:hover {
             transform: translateY(-2px);
+        }
+        
+        /* Fix buttons on mobile */
+        button, .cta-button, .calculate-btn {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         
         .result-box {
@@ -546,23 +561,182 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        /* Responsive Design */
+        /* Enhanced Mobile Responsive Design */
         @media (max-width: 768px) {
+            /* Typography adjustments */
+            h1 { 
+                font-size: 1.75rem !important; 
+                line-height: 1.3;
+            }
+            h2 { 
+                font-size: 1.5rem !important; 
+            }
+            h3 { 
+                font-size: 1.25rem !important; 
+            }
+            h4 { 
+                font-size: 1.1rem !important; 
+            }
+            
+            /* Container padding */
+            .container {
+                padding: 0 15px;
+            }
+            
+            /* Download section mobile fixes */
+            .download-section {
+                padding: 40px 0;
+            }
+            
+            .download-section h1 {
+                font-size: 1.8rem !important;
+                margin-bottom: 15px;
+            }
+            
+            .download-section p {
+                font-size: 1rem !important;
+            }
+            
+            /* Make download button mobile-friendly */
+            .download-section a {
+                padding: 15px 30px !important;
+                font-size: 1.1rem !important;
+                display: block !important;
+                margin: 0 auto;
+                max-width: 280px;
+                text-align: center;
+            }
+            
+            /* Hero section mobile */
+            .hero {
+                min-height: 80vh;
+                padding: 20px 0;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .savings-counter {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+            
+            .savings-amount {
+                font-size: 2rem;
+            }
+            
+            /* Cards and grids */
             .nudges-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 10px;
             }
             
+            .nudge-card {
+                padding: 20px;
+                margin: 0 5px;
+            }
+            
+            /* Calculator section */
+            .calculator-card {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            /* Form elements */
+            input, select {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+                padding: 12px 10px;
+            }
+            
+            /* Tabs */
             .tabs {
                 flex-direction: column;
+                gap: 5px;
             }
             
+            .tab {
+                width: 100%;
+                padding: 12px;
+            }
+            
+            /* Table responsiveness */
             .tracker-table {
-                font-size: 14px;
+                font-size: 12px;
+                display: block;
+                overflow-x: auto;
             }
             
             .tracker-table th,
             .tracker-table td {
+                padding: 6px;
+                min-width: 60px;
+            }
+            
+            /* Meme scroll */
+            .meme-scroll {
+                gap: 15px;
+                padding: 15px 0;
+            }
+            
+            .meme-card {
+                min-width: 200px;
+                padding: 15px;
+            }
+            
+            /* Hide theme toggle or make it smaller */
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
                 padding: 8px;
+                font-size: 1.2rem;
+            }
+            
+            /* Stat numbers */
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            /* Canvas chart */
+            #donutChart {
+                max-width: 200px !important;
+                height: auto !important;
+            }
+            
+            /* Progress bar */
+            .progress-bar {
+                height: 25px;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 30px 15px;
+                font-size: 0.9rem;
+            }
+            
+            /* Box shadow adjustments */
+            .nudge-card,
+            .calculator-card {
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 1.3rem !important; }
+            
+            .download-section h1 {
+                font-size: 1.5rem !important;
+            }
+            
+            .savings-amount {
+                font-size: 1.75rem;
+            }
+            
+            .stat-number {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -588,11 +762,11 @@
                    style="background: white; color: #11998e; padding: 20px 50px; border: none; border-radius: 50px; font-size: 1.4rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: pulse 2s infinite; display: inline-block; text-decoration: none;"
                    onmouseover="this.style.transform='translateY(-3px) scale(1.1)'" 
                    onmouseout="this.style.transform='translateY(0) scale(1)'"
-                   onclick="trackUsage('excel_tracker_downloaded')">
+                   onclick="trackDownload()">
                     📥 Get Your Budget Buddy Now!
                 </a>
                 <p style="margin-top: 25px; font-size: 1.3rem;">
-                    <strong>10</strong> smart legends have already saved their wallets 🦸‍♂️
+                    <strong id="downloadCounter">10</strong> smart legends have already saved their wallets 🦸‍♂️
                 </p>
                 <div style="margin-top: 30px; padding: 25px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
                     <p style="font-size: 1.1rem; margin: 0;">
@@ -893,6 +1067,27 @@
     <div class="success-animation" id="successAnimation">🎉</div>
     
     <script>
+        // Track download with Google Analytics
+        function trackDownload() {
+            // Send event to Google Analytics
+            gtag('event', 'download', {
+                'event_category': 'budget_tracker',
+                'event_label': 'excel_download',
+                'value': 1
+            });
+            
+            // Update local counter (for display)
+            trackUsage('excel_tracker_downloaded');
+            
+            // Update visible counter
+            let currentCount = parseInt(localStorage.getItem('downloadCount') || '10');
+            currentCount++;
+            localStorage.setItem('downloadCount', currentCount);
+            document.getElementById('downloadCounter').textContent = currentCount;
+            
+            console.log('Download tracked! Total downloads:', currentCount);
+        }
+        
         // Initialize particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
@@ -928,6 +1123,12 @@
         function initSavingsCounter() {
             const savedAmount = localStorage.getItem('totalSaved') || 4750;
             animateCounter('savingsCounter', savedAmount);
+        }
+        
+        // Initialize download counter on page load
+        function initDownloadCounter() {
+            const downloadCount = localStorage.getItem('downloadCount') || '10';
+            document.getElementById('downloadCounter').textContent = downloadCount;
         }
         
         // Draw donut chart
@@ -1260,7 +1461,13 @@
             usage.lastUsed = new Date().toISOString();
             localStorage.setItem('usageTracking', JSON.stringify(usage));
             
-            // Log for analytics (replace with actual Google Analytics)
+            // Send to Google Analytics
+            gtag('event', 'interaction', {
+                'event_category': 'user_action',
+                'event_label': action,
+                'value': 1
+            });
+            
             console.log('Usage tracked:', action, usage);
         }
         
@@ -1268,6 +1475,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             initSavingsCounter();
+            initDownloadCounter(); // Initialize download counter
             drawDonutChart();
             displayLogs();
             
