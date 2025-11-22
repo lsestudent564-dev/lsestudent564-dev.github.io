@@ -808,8 +808,8 @@
                 <div class="nudge-card" style="animation-delay: 0.1s">
                     <div class="nudge-icon">🕺</div>
                     <h3>Plot Twist: You're Not Missing Out!</h3>
-                    <div class="stat-number" id="socialNormStat">73%</div>
-                    <p>of your mates spend LESS than £20/night</p>
+                    <div class="stat-number" id="socialNormStat">50%</div>
+                    <p>of your mates spend LESS than £15/week</p>
                     <div class="chart-container" style="height: 250px;">
                         <canvas id="donutChart" width="300" height="200" style="max-width: 100%;"></canvas>
                     </div>
@@ -955,7 +955,7 @@
                         <option value="2">One round for my bestie 😅</option>
                         <option value="3">Round for the squad (3 people) 😬</option>
                         <option value="4">I'm Mr. Generous (4+ people) 💸</option>
-                        <option value="6">I'm an idiot (whole table) ☠️</option>
+                        <option value="6">I'm rich (whole table) ☠️</option>
                     </select>
                 </div>
                 
@@ -1150,12 +1150,12 @@
             ctx.imageSmoothingEnabled = true;
             ctx.imageSmoothingQuality = 'high';
             
-            // Draw 73% segment with gradient
+            // Draw 50% segment with gradient
             const gradient = ctx.createLinearGradient(centerX - radius, centerY, centerX + radius, centerY);
             gradient.addColorStop(0, '#667eea');
             gradient.addColorStop(1, '#764ba2');
             
-            // Draw 73% segment
+            // Draw 50% segment
             ctx.beginPath();
             ctx.moveTo(centerX, centerY);
             ctx.arc(centerX, centerY, radius, -Math.PI / 2, -Math.PI / 2 + (Math.PI * 2 * 0.73));
@@ -1182,7 +1182,7 @@
             ctx.font = 'bold 48px Inter, sans-serif';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('73%', centerX, centerY - 10);
+            ctx.fillText('50%', centerX, centerY - 10);
             
             // Draw subtitle
             ctx.fillStyle = '#666';
